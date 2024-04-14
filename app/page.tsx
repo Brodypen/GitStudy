@@ -8,22 +8,22 @@ import Link from "next/link";
 const Home = () => {
   return (
     <main className="min-h-screen w-screen overflow-hidden flex items-center justify-center text-center bg-gradient-radial from-#19181C to-#161518">
-      <div className="fixed top-0 left-0 p-4 flex justify-between w-full px-8">
-        <Link href="/" className="text-white">
-          Home
+      <div className="fixed top-0 left-0 p-4 flex justify-between w-full px-8 z-50">
+        <Link href="/" passHref>
+          <div className="text-white">Home</div>
         </Link>
         <div className="flex">
-          <Link href="/about" className="text-white mr-4">
-            About
+          <Link href="/about" passHref>
+            <div className="text-white mr-4">About</div>
           </Link>
-          <Link href="/login" className="text-white">
-            Login
+          <Link href="/login" passHref>
+            <div className="text-white">Login</div>
           </Link>
         </div>
       </div>
       <Boxes className="" />
       <div className="z-10">
-        <p className="text-6xl jersey-25">GitStudy</p>
+        <p className="md:text-6xl sm:text-3xl jersey-25">GitStudy</p>
         <p className="mt-2 tracking-wider">The future of learning</p>
         <button>
           <a
