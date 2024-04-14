@@ -56,14 +56,14 @@ export default function AuthComponent() {
             >
               <FaGithub /> Github
             </Button>
-            {/* TODO: Add Google OAuth (maybe) */}
-            {/* <Button
+
+            <Button
               className=" w-full flex items-center gap-2 "
               variant="outline"
               onClick={() => handleLoginWithOAuth("google")}
             >
               <FcGoogle /> Google
-            </Button> */}
+            </Button>
           </div>
           <div className="glowBox -z-10"></div>
         </div>
