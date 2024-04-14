@@ -81,6 +81,54 @@ In the future, we plan to introduce a feature where students can plan a study se
 
 ----
 
+## :page_facing_up: Pages
+
+### :house: Landing Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/65b0d213-de4f-4339-a4e1-9d3c50957316)
+The landing page welcomes users and provides an overview of the platform. It also has a cool hover feature that fills up the cells below it!
+
+### :key: Login Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/21fedce3-e600-4b57-b4a0-0d188ed66389)
+The login page allows users to access their accounts through GitHub or Google
+
+### :chart_with_upwards_trend: Dashboard Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/6a5cfdb9-ebbb-4504-912a-3d219850a4a8)
+The dashboard page provides a personalized overview of the user's activity, including their study groups, tasks, and notifications.
+
+### :trophy: Popular Study Groups Dashboard Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/859d5ed8-6ca9-4a0c-939e-5d56856f349d)
+This page displays the most popular study groups on the platform, ranked by factors such as number of members, activity level, and resource quality.
+
+### :heart: Favorite Study Groups Dashboard Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/2ea5e7ff-3194-46d8-94fc-45973f3bf11b)
+This page shows the user's favorite study groups for quick access.
+
+### :busts_in_silhouette: My Groups Dashboard Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/a4bb4504-21c5-42dd-84b0-0aef5cc7f0a5)
+This page lists all the study groups that the user is a part of.
+
+### :books: Study Groups Dashboard Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/1e1ec0ac-f33e-47e8-b1ab-db82d7456254)
+This page provides a comprehensive list of all study groups on the platform.
+
+### :speech_balloon: General Dashboard Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/6da60683-b9f8-4624-8bf1-6a415469cb91)
+This page is a general communication hub where users can interact with each other.
+
+### :file_folder: Study Guides Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/d21537ea-49a6-4c2d-9f2a-7691a0a3c02e)
+This page hosts files on study guides for various subjects, shared by users.
+
+### :notebook_with_decorative_cover: Notes Page
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/bc5cb0fd-2f88-47a0-961a-8751fa00005a)
+This page hosts files on notes for different study groups, shared by users.
+
+### :arrow_up: Uploads Popup Page
+![Uploading image.png…]()
+This page allows users to upload study materials such as notes and study guides. It includes options for specifying the relevant study group, adding a description, and choosing the file to upload.
+
+----
+
 ## Getting Started
 
 First, run the development server:
