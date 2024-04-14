@@ -8,8 +8,11 @@ const StudyGroup = () => {
   const [isGeneralClicked, setIsGeneralClicked] = useState(false);
   const [isStudyGuidesClicked, setIsStudyGuidesClicked] = useState(false);
   const [isNotesClicked, setIsNotesClicked] = useState(false);
-  const courseName =
-    window.localStorage.getItem("selectedCourse") || "Study Groups";
+  let courseName = "Study Group";
+  if (typeof window !== "undefined") {
+    courseName =
+      window.localStorage.getItem("selectedCourse") || "Study Groups";
+  }
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
 
@@ -136,7 +139,9 @@ const StudyGroup = () => {
                     setIsGeneralClicked(true);
                     setIsStudyGuidesClicked(false);
                     setIsNotesClicked(false);
+                    if (typeof window !== "undefined") {
                     window.location.href = "#general";
+                    }
                   }}
                   className="cursor-pointer ml-2"
                 >
