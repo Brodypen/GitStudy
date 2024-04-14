@@ -57,6 +57,9 @@ Users receive notifications about updates in their study groups, such as new res
 **General**: 
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
 
+**Design**:
+![Figma](https://img.shields.io/badge/-Figma-F24E1E?logo=figma&logoColor=white)
+
 **Frontend**:
 ![Next.js](https://img.shields.io/badge/-Next.js-black?logo=next.js&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
 
