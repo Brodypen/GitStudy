@@ -26,6 +26,41 @@ const StudyGroup = () => {
     setNewMessage("");
   };
 
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [title, setTitle] = React.useState("");
+  const [description, setDescription] = React.useState("");
+  const [file, setFile] = React.useState<File | null>(null);
+  const [image, setImage] = React.useState<File | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const fileList = e.target.files;
+    if (fileList && fileList.length > 0) {
+      setFile(fileList[0]);
+    }
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const fileList = e.target.files;
+    if (fileList && fileList.length > 0) {
+      setImage(fileList[0]);
+    }
+  };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setDescription(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission here
+  };
+
   const cards = [
     {
       image: "/math.png",
@@ -69,7 +104,9 @@ const StudyGroup = () => {
       }}
     >
       <div className="w-full bg-gradient-radial from-[#19181C] to-[#161518] text-white p-4 text-3xl ml-4 font-bold flex justify-between items-center border-b border-[#393939]">
-        GitStudy
+        <Link href="/">
+          <Image src="/logo.svg" alt="GitStudy" width={150} height={150} />
+        </Link>
         <Image
           src="/profile.jpg"
           alt="Profile Picture"
@@ -150,12 +187,32 @@ const StudyGroup = () => {
             </Link>
           </div>
           {/* Add more links for other pages within the dashboard here */}
-          <Link href="/" passHref>
-            <div className="flex items-center mb-4 pl-4 py-1 text-white opacity-75 hover:bg-[#3A3454] rounded hover:opacity-100 hover:font-bold active:bg-[#3A3454] active:opacity-100 active:font-bold">
-              <Image src="/house.svg" alt="Back" width={15} height={15} />
-              <button className="cursor-pointer ml-2">Back to Home</button>
-            </div>
-          </Link>
+          <div>
+            <Link href="/dashboard" passHref>
+              <div className="flex items-center pl-4 py-1 text-white opacity-75 hover:bg-[#3A3454] rounded hover:opacity-100 hover:font-bold active:bg-[#3A3454] active:opacity-100 active:font-bold">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+                <a className="cursor-pointer ml-2">Back to Study Groups</a>
+              </div>
+            </Link>
+            <Link href="/" passHref>
+              <div className="flex items-center mb-4 pl-4 py-1 text-white opacity-75 hover:bg-[#3A3454] rounded hover:opacity-100 hover:font-bold active:bg-[#3A3454] active:opacity-100 active:font-bold">
+                <Image src="/house.svg" alt="Back" width={15} height={15} />
+                <a className="cursor-pointer ml-2">Back to Home</a>
+              </div>
+            </Link>
+          </div>
         </div>
         {isGeneralClicked && (
           <main
@@ -226,7 +283,7 @@ const StudyGroup = () => {
                 <button
                   type="submit"
                   onClick={handleSend}
-                  className="ml-2 bg-[#15EDA3] h-10 px-4 rounded text-white"
+                  className="ml-2 bg-[#15EDA3] h-10 px-4 rounded text-[#393939] font-bold hover:bg-[#393939] hover:text-[#15EDA3] transition-all duration-300 ease-in-out"
                 >
                   Send
                 </button>
@@ -327,6 +384,7 @@ const StudyGroup = () => {
                 cursor: "pointer",
               }}
               className="text-[#393939] bg-[#15EDA3] hover:bg-[#393939] hover:text-[#15EDA3] transition-all duration-300 ease-in-out font-bold"
+              onClick={() => setIsOpen(true)}
             >
               Upload
             </button>
@@ -423,10 +481,231 @@ const StudyGroup = () => {
                 cursor: "pointer",
               }}
               className="text-[#393939] bg-[#15EDA3] hover:bg-[#393939] hover:text-[#15EDA3] transition-all duration-300 ease-in-out font-bold"
+              onClick={() => setIsOpen(true)}
             >
               Upload
             </button>
           </main>
+        )}
+        {isOpen && (
+          <>
+            <div
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                background:
+                  "radial-gradient(circle at top left, #15EDA3 10%, #15EDA3 20%, transparent 35%)",
+                zIndex: 998,
+              }}
+            ></div>
+            <div
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                backdropFilter: "blur(5px)",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                zIndex: 999,
+              }}
+            ></div>
+            <div
+              style={{
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                width: "50%",
+                height: "75%",
+                transform: "translate(-50%, -50%)",
+                zIndex: 1000,
+                backgroundColor: "#161518",
+                padding: "30px",
+                borderRadius: "10px",
+                border: "1px solid #393939",
+                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
+              }}
+            >
+              <form
+                onSubmit={handleSubmit}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  borderRadius: "10px",
+                }}
+              >
+                <label>
+                  <div
+                    onDragOver={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    onDragLeave={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleFileChange(e.dataTransfer.files[0]);
+                    }}
+                    style={{
+                      width: "100%",
+                      height: "100px",
+                      border: "2px dashed #393939",
+                      borderRadius: "5px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginBottom: "10px",
+                      opacity: 0.75,
+                    }}
+                  >
+                    Upload your file here
+                  </div>
+                </label>
+                <label>
+                  <div
+                    onDragOver={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    onDragLeave={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleImageChange(e.dataTransfer.files[0]);
+                    }}
+                    style={{
+                      width: "100%",
+                      height: "100px",
+                      border: "2px dashed #393939",
+                      borderRadius: "5px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        width: "24px",
+                        height: "24px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        opacity: 0.75,
+                      }}
+                      className="text-nowrap flex-col"
+                    >
+                      Upload your image here
+                    </div>
+                  </div>
+                </label>
+                <label className="font-bold tracking-wide">
+                  Title:
+                  <div style={{ position: "relative" }}>
+                    <textarea
+                      value={description}
+                      onChange={handleDescriptionChange}
+                      maxLength={200}
+                      style={{
+                        width: "100%",
+                        height: "100px",
+                        backgroundColor: "transparent",
+                        border: "1px solid #393939",
+                        borderRadius: "5px",
+                      }}
+                      className="mt-2"
+                    />
+                    <p
+                      style={{
+                        position: "absolute",
+                        bottom: 12,
+                        right: 12,
+                        opacity: 0.75,
+                      }}
+                    >
+                      {description.length}/200
+                    </p>
+                  </div>
+                </label>
+                <label className="font-bold tracking-wide">
+                  Description:
+                  <div style={{ position: "relative" }}>
+                    <textarea
+                      value={description}
+                      onChange={handleDescriptionChange}
+                      maxLength={200}
+                      style={{
+                        width: "100%",
+                        height: "175px",
+                        backgroundColor: "transparent",
+                        border: "1px solid #393939",
+                        borderRadius: "5px",
+                      }}
+                      className="mt-2"
+                    />
+                    <p
+                      style={{
+                        position: "absolute",
+                        bottom: 12,
+                        right: 12,
+                        opacity: 0.75,
+                      }}
+                    >
+                      {description.length}/200
+                    </p>
+                  </div>
+                </label>
+                <p style={{ fontSize: "0.8rem", color: "#888" }}>
+                  Note: All resources are checked by a moderator before going
+                  public.
+                </p>
+              </form>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginTop: "20px",
+                  marginBottom: "0px",
+                }}
+              >
+                <button
+                  onClick={() => setIsOpen(false)}
+                  style={{
+                    backgroundColor: "#3A3454",
+                    color: "#ffffff",
+                    padding: "10px",
+                    marginLeft: "10px",
+                  }}
+                  className="rounded-xl font-bold"
+                >
+                  Close
+                </button>
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "#15EDA3",
+                    color: "#161518",
+                    padding: "5px",
+                    marginLeft: "10px",
+                  }}
+                  className="rounded-xl font-bold"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

@@ -61,7 +61,9 @@ const Dashboard = () => {
       }}
     >
       <div className="w-full bg-gradient-radial from-[#19181C] to-[#161518] text-white p-4 text-3xl ml-4 font-bold flex justify-between items-center border-b border-[#393939]">
-        GitStudy
+        <Link href="/">
+          <Image src="/logo.svg" alt="GitStudy" width={150} height={150} />
+        </Link>
         <Image
           src="/profile.jpg"
           alt="Profile Picture"
@@ -191,7 +193,7 @@ const Dashboard = () => {
               Find study groups that suit your necessities to improve your
               academic knowledge.
             </p>
-            <div className="grid grid-cols-5 gap-2 mt-6 ml-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-6 ml-6">
               {Array(12)
                 .fill(null)
                 .map((_, index) => (
@@ -202,7 +204,6 @@ const Dashboard = () => {
                         "selectedCourse",
                         courseNames[index]
                       );
-                      
                     }}
                     style={{ display: "block", textDecoration: "none" }}
                     href="/studygroup"
@@ -312,7 +313,7 @@ const Dashboard = () => {
               Your favorited study groups that cater to your academic needs and
               enhance your knowledge.
             </p>
-            <div className="grid grid-cols-5 gap-2 mt-6 ml-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-6 ml-6">
               {Array(6)
                 .fill(null)
                 .map((_, index) => (
@@ -428,7 +429,7 @@ const Dashboard = () => {
               that have contributed to your academic journey and knowledge
               growth.
             </p>
-            <div className="grid grid-cols-5 gap-2 mt-6 ml-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-6 ml-6">
               {Array(9)
                 .fill(null)
                 .map((_, index) => (
