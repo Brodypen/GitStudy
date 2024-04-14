@@ -50,6 +50,10 @@ In the future, we plan to introduce a gamification system where users can "star"
 ### :bell: Notifications
 Users receive notifications about updates in their study groups, such as new resources being shared, new discussions being started, or changes to projects they are part of.
 
+### :calendar: Study Session Planning
+In the future, we plan to introduce a feature where students can plan a study session at a specific location and time. This will help facilitate in-person collaboration and learning.
+
+
 ----
 
 ## Technologies
