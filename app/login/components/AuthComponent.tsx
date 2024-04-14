@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function AuthComponent() {
   const params = useSearchParams();
-  const next = params.get("next") || "/dashboard";
+  const next = params.get("next") || "dashboard";
   const handleLoginWithOAuth = (provider: "github" | "google") => {
     const supabase = supabaseBrowser();
     supabase.auth.signInWithOAuth({
