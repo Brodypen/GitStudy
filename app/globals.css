@@ -80,4 +80,18 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: radial-gradient(circle, #19181c, #161518);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161518; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #15EDA3; /* color of the scroll thumb */
+  border-radius: 4px; /* roundness of the scroll thumb */
 }
