@@ -25,7 +25,7 @@ export default function AuthComponent() {
   };
 
   return (
-    <main className="min-h-screen w-screen overflow-hidden flex items-center justify-center text-center bg-gradient-radial from-#19181C to-#161518">
+<main className="min-h-screen w-screen overflow-hidden flex items-center justify-center text-center" style={{background: 'linear-gradient(to bottom left, #161518 50%, #2F2656 100%)'}}>
       <div className="fixed top-0 left-0 p-4 flex justify-between w-full px-8">
         <Link href="/" className="text-white z-50">
           Home
@@ -41,33 +41,29 @@ export default function AuthComponent() {
       </div>
       <Boxes className="" />
       <div className="z-10">
-        <div className=" w-96 rounded-md border p-5 space-y-5 relative bg-slate-900">
           <div className="flex items-center gap-2">
-            <KeyRound />
-            <h1 className="text-2xl font-bold">GitStudy Login</h1>
+            <h1 className="text-4xl text-center font-bold mb-10">Login to your account</h1>
           </div>
 
-          <p className="text-sm text-gray-300">Register/SignIn Today!</p>
           <div className="flex flex-col gap-5 text-gray-900">
             <Button
-              className=" w-full flex items-center gap-2 "
+              className=" w-full flex items-center gap-2 font-bold"
               variant="outline"
               onClick={() => handleLoginWithOAuth("github")}
             >
-              <FaGithub /> Github
+              <FaGithub /> Login with GitHub
             </Button>
 
             <Button
-              className=" w-full flex items-center gap-2 "
+              className=" w-full flex items-center gap-2 font-bold"
               variant="outline"
               onClick={() => handleLoginWithOAuth("google")}
             >
-              <FcGoogle /> Google
+              <FcGoogle /> Login with Google
             </Button>
           </div>
           <div className="glowBox -z-10"></div>
         </div>
-      </div>
       {/* <div className="z-10">
         <p className="text-6xl jersey-25">GitStudy</p>
         <p className="mt-2 tracking-wider">The future of learning</p>

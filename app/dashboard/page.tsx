@@ -53,7 +53,13 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen w-screen overflow-hidden flex flex-col bg-gradient-radial from-[#19181C] to-[#161518]">
+    <div
+      className="min-h-screen w-screen overflow-hidden flex flex-col bg-gradient-radial from-[#19181C] to-[#161518]"
+      style={{
+        background:
+          "linear-gradient(to bottom right, #161518 50%, #2F2656 100%)",
+      }}
+    >
       <div className="w-full bg-gradient-radial from-[#19181C] to-[#161518] text-white p-4 text-3xl ml-4 font-bold flex justify-between items-center border-b border-[#393939]">
         GitStudy
         <Image
@@ -141,7 +147,13 @@ const Dashboard = () => {
           </Link>
         </div>
         {isMostPopularClicked && (
-          <main className="flex-1 p-4 border-t border-l border-[#393939]">
+          <main
+            className="flex-1 p-4 border-t border-l border-[#393939]"
+            style={{
+              background:
+                "linear-gradient(to bottom right, #161518 50%, #2F2656 100%)",
+            }}
+          >
             <div className="flex justify-between items-center">
               <p className="text-3xl jersey-25 my-6 ml-6 font-bold">
                 Popular Study Groups
@@ -183,65 +195,86 @@ const Dashboard = () => {
               {Array(12)
                 .fill(null)
                 .map((_, index) => (
-                  <div
+                  <a
                     key={index}
-                    className="bg-[#161518] border-[#393939] border rounded-2xl shadow-md p-4 flex flex-col items-start space-y-1"
+                    onClick={() => {
+                      window.localStorage.setItem(
+                        "selectedCourse",
+                        courseNames[index]
+                      );
+                      
+                    }}
+                    style={{ display: "block", textDecoration: "none" }}
+                    href="/studygroup"
                   >
-                    <Image
-                      src={images[index]}
-                      alt="General Image"
-                      width={1000}
-                      height={80}
-                      className="object-cover rounded-2xl w-full"
-                    />
-                    <div className="flex justify-between w-full">
+                    <div
+                      key={index}
+                      className="bg-[#161518] border-[#393939] border rounded-2xl shadow-md p-4 flex flex-col items-start space-y-1 h-full"
+                    >
                       <Image
-                        src="/book.svg"
-                        alt="Book Icon"
-                        width={12}
-                        height={12}
+                        src={images[index]}
+                        alt="General Image"
+                        width={1000}
+                        height={80}
+                        className="object-cover rounded-2xl w-full"
                       />
-                      {index % 2 === 0 && (
-                        <span className="bg-[#3A3454] text-white text-xs px-1 py-0.5 mt-1 rounded">
-                          Joined
-                        </span>
-                      )}
-                    </div>
-                    <h2 className="text-md font-bold">{courseNames[index]}</h2>
-                    <p className="text-sm pt-3 text-gray-500">
-                      {descriptions[index]}
-                    </p>
-                    <div className="flex flex-col justify-end items h-full">
-                      <div className="flex flex-row justify-end w-full">
-                        <button
-                          onClick={() => setIsClicked(!isClicked)}
-                          className={`p-1 rounded-full border-[#393939]`}
-                          title="Toggle Click"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill={isClicked ? "#15EDA3" : "#393939"}
-                            stroke={isClicked ? "#15EDA3" : "#393939"}
-                            viewBox="0 0 24 24"
-                            className="w-4 h-4"
+                      <div className="flex justify-between w-full">
+                        <Image
+                          src="/book.svg"
+                          alt="Book Icon"
+                          width={12}
+                          height={12}
+                        />
+                        {index % 2 === 0 && (
+                          <span className="bg-[#3A3454] text-white text-xs px-1 py-0.5 mt-1 rounded">
+                            Joined
+                          </span>
+                        )}
+                      </div>
+                      <h2 className="text-md font-bold">
+                        {courseNames[index]}
+                      </h2>
+                      <p className="text-sm pt-3 text-gray-500">
+                        {descriptions[index]}
+                      </p>
+                      <div className="flex flex-col justify-end items h-full">
+                        <div className="flex flex-row justify-end w-full">
+                          <button
+                            onClick={() => setIsClicked(!isClicked)}
+                            className={`p-1 rounded-full border-[#393939]`}
+                            title="Toggle Click"
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={3}
-                              d="M12 1.3l3.917 7.744 8.567 1.245-6.234 6.092 1.472 8.56L12 19.347l-7.722 4.06 1.472-8.56-6.234-6.092 8.567-1.245L12 1.3z"
-                            />
-                          </svg>
-                        </button>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill={isClicked ? "#15EDA3" : "#393939"}
+                              stroke={isClicked ? "#15EDA3" : "#393939"}
+                              viewBox="0 0 24 24"
+                              className="w-4 h-4"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={3}
+                                d="M12 1.3l3.917 7.744 8.567 1.245-6.234 6.092 1.472 8.56L12 19.347l-7.722 4.06 1.472-8.56-6.234-6.092 8.567-1.245L12 1.3z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 ))}
             </div>
           </main>
         )}
         {isFavoritesClicked && (
-          <main className="flex-1 p-4 border-t border-l border-[#393939]">
+          <main
+            className="flex-1 p-4 border-t border-l border-[#393939]"
+            style={{
+              background:
+                "linear-gradient(to bottom right, #161518 50%, #2F2656 100%)",
+            }}
+          >
             <div className="flex justify-between items-center">
               <p className="text-3xl jersey-25 my-6 ml-6 font-bold">
                 Your Favorited Groups
@@ -283,60 +316,80 @@ const Dashboard = () => {
               {Array(6)
                 .fill(null)
                 .map((_, index) => (
-                  <div
+                  <a
                     key={index}
-                    className="bg-[#161518] border-[#393939] border rounded-2xl shadow-md p-4 flex flex-col items-start space-y-1"
+                    onClick={() => {
+                      window.localStorage.setItem(
+                        "selectedCourse",
+                        courseNames[index]
+                      );
+                    }}
+                    style={{ display: "block", textDecoration: "none" }}
+                    href="/studygroup"
                   >
-                    <Image
-                      src={images[index]}
-                      alt="General Image"
-                      width={1000}
-                      height={80}
-                      className="object-cover rounded-2xl w-full"
-                    />
-                    <div className="flex justify-between w-full">
-                      <Image
-                        src="/book.svg"
-                        alt="Book Icon"
-                        width={12}
-                        height={12}
-                      />
-                      <span className="bg-[#3A3454] text-white text-xs px-1 py-0.5 mt-1 rounded">
-                        Joined
-                      </span>
-                    </div>
-                    <h2 className="text-md font-bold">{courseNames[index]}</h2>
-                    <p className="text-sm pt-3 text-gray-500">
-                      {descriptions[index]}
-                    </p>
-                    <button
-                      onClick={() => setIsClicked(!isClicked)}
-                      className={`p-1 rounded-full border-[#393939] self-end`}
-                      title="Toggle Click"
+                    <div
+                      key={index}
+                      className="bg-[#161518] border-[#393939] border rounded-2xl shadow-md p-4 flex flex-col items-start space-y-1 h-full"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill={isClicked ? "#393939" : "#15EDA3"}
-                        stroke={isClicked ? "#393939" : "#15EDA3"}
-                        viewBox="0 0 24 24"
-                        className="w-4 h-4"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={3}
-                          d="M12 1.3l3.917 7.744 8.567 1.245-6.234 6.092 1.472 8.56L12 19.347l-7.722 4.06 1.472-8.56-6.234-6.092 8.567-1.245L12 1.3z"
+                      <Image
+                        src={images[index]}
+                        alt="General Image"
+                        width={1000}
+                        height={80}
+                        className="object-cover rounded-2xl w-full"
+                      />
+                      <div className="flex justify-between w-full">
+                        <Image
+                          src="/book.svg"
+                          alt="Book Icon"
+                          width={12}
+                          height={12}
                         />
-                      </svg>
-                    </button>
-                  </div>
+                        <span className="bg-[#3A3454] text-white text-xs px-1 py-0.5 mt-1 rounded">
+                          Joined
+                        </span>
+                      </div>
+                      <h2 className="text-md font-bold">
+                        {courseNames[index]}
+                      </h2>
+                      <p className="text-sm pt-3 text-gray-500">
+                        {descriptions[index]}
+                      </p>
+                      <button
+                        onClick={() => setIsClicked(!isClicked)}
+                        className={`p-1 rounded-full border-[#393939] self-end`}
+                        title="Toggle Click"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill={isClicked ? "#393939" : "#15EDA3"}
+                          stroke={isClicked ? "#393939" : "#15EDA3"}
+                          viewBox="0 0 24 24"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M12 1.3l3.917 7.744 8.567 1.245-6.234 6.092 1.472 8.56L12 19.347l-7.722 4.06 1.472-8.56-6.234-6.092 8.567-1.245L12 1.3z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </a>
                 ))}
             </div>
           </main>
         )}
 
         {isMyGroupsClicked && (
-          <main className="flex-1 p-4 border-t border-l border-[#393939]">
+          <main
+            className="flex-1 p-4 border-t border-l border-[#393939]"
+            style={{
+              background:
+                "linear-gradient(to bottom right, #161518 50%, #2F2656 100%)",
+            }}
+          >
             <div className="flex justify-between items-center">
               <p className="text-3xl jersey-25 my-6 ml-6 font-bold">
                 All of Your Groups
@@ -379,53 +432,67 @@ const Dashboard = () => {
               {Array(9)
                 .fill(null)
                 .map((_, index) => (
-                  <div
+                  <a
                     key={index}
-                    className="bg-[#161518] border-[#393939] border rounded-2xl shadow-md p-4 flex flex-col items-start space-y-1"
+                    onClick={() => {
+                      window.localStorage.setItem(
+                        "selectedCourse",
+                        courseNames[index]
+                      );
+                    }}
+                    style={{ display: "block", textDecoration: "none" }}
+                    href="/studygroup"
                   >
-                    <Image
-                      src={images[index]}
-                      alt="General Image"
-                      width={1000}
-                      height={80}
-                      className="object-cover rounded-2xl w-full"
-                    />
-                    <div className="flex justify-between w-full">
-                      <Image
-                        src="/book.svg"
-                        alt="Book Icon"
-                        width={12}
-                        height={12}
-                      />
-                      <span className="bg-[#3A3454] text-white text-xs px-1 py-0.5 mt-1 rounded">
-                        Joined
-                      </span>
-                    </div>
-                    <h2 className="text-md font-bold">{courseNames[index]}</h2>
-                    <p className="text-sm pt-3 text-gray-500">
-                      {descriptions[index]}
-                    </p>
-                    <button
-                      onClick={() => setIsClicked(!isClicked)}
-                      className={`p-1 rounded-full border-[#393939] self-end`}
-                      title="Toggle Click"
+                    <div
+                      key={index}
+                      className="bg-[#161518] border-[#393939] border rounded-2xl shadow-md p-4 flex flex-col items-start space-y-1 h-full"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill={isClicked ? "#15EDA3" : "#393939"}
-                        stroke={isClicked ? "#15EDA3" : "#393939"}
-                        viewBox="0 0 24 24"
-                        className="w-4 h-4"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={3}
-                          d="M12 1.3l3.917 7.744 8.567 1.245-6.234 6.092 1.472 8.56L12 19.347l-7.722 4.06 1.472-8.56-6.234-6.092 8.567-1.245L12 1.3z"
+                      <Image
+                        src={images[index]}
+                        alt="General Image"
+                        width={1000}
+                        height={80}
+                        className="object-cover rounded-2xl w-full"
+                      />
+                      <div className="flex justify-between w-full">
+                        <Image
+                          src="/book.svg"
+                          alt="Book Icon"
+                          width={12}
+                          height={12}
                         />
-                      </svg>
-                    </button>
-                  </div>
+                        <span className="bg-[#3A3454] text-white text-xs px-1 py-0.5 mt-1 rounded">
+                          Joined
+                        </span>
+                      </div>
+                      <h2 className="text-md font-bold">
+                        {courseNames[index]}
+                      </h2>
+                      <p className="text-sm pt-3 text-gray-500">
+                        {descriptions[index]}
+                      </p>
+                      <button
+                        onClick={() => setIsClicked(!isClicked)}
+                        className={`p-1 rounded-full border-[#393939] self-end`}
+                        title="Toggle Click"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill={isClicked ? "#15EDA3" : "#393939"}
+                          stroke={isClicked ? "#15EDA3" : "#393939"}
+                          viewBox="0 0 24 24"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M12 1.3l3.917 7.744 8.567 1.245-6.234 6.092 1.472 8.56L12 19.347l-7.722 4.06 1.472-8.56-6.234-6.092 8.567-1.245L12 1.3z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </a>
                 ))}
             </div>
           </main>

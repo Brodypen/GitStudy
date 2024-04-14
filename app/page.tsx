@@ -37,11 +37,11 @@ const Home = () => {
         </button>
       </div>
       <div className="fixed bottom-0 left-0 p-4 px-8 flex">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/Brodypen/GitStudy" target="_blank" rel="noopener noreferrer">
           <Image src="/github.svg" alt="GitHub logo" width={24} height={24} />
         </a>
         <a
-          href="https://www.figma.com"
+          href="https://www.figma.com/file/cHS42y8ooT8eriJFxXPJQL/GitStudy---HackMISSO?type=design&node-id=0%3A1&mode=design&t=ZWu2KxVShc0O8TnF-1"
           target="_blank"
           rel="noopener noreferrer"
           className="ml-4"
