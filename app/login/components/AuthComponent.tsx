@@ -16,7 +16,7 @@ export default function AuthComponent() {
     supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: location.origin + "/login/callback?next=" + next,
+        redirectTo: location.origin + "/dashboard",
       },
     });
   };
