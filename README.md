@@ -124,7 +124,7 @@ This page hosts files on study guides for various subjects, shared by users.
 This page hosts files on notes for different study groups, shared by users.
 
 ### :arrow_up: Uploads Popup Page
-![Uploading image.png…]()
+![image](https://github.com/Brodypen/GitStudy/assets/114624617/424fd96b-5154-4e6a-8b23-bdb959aabf3a)
 This page allows users to upload study materials such as notes and study guides. It includes options for specifying the relevant study group, adding a description, and choosing the file to upload.
 
 ----
