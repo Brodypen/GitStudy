@@ -13,13 +13,13 @@ import Image from "next/image";
 
 export default function AuthComponent() {
   const params = useSearchParams();
-  const next = params.get("next") || "";
+  const next = params.get("next") || "/dashboard";
   const handleLoginWithOAuth = (provider: "github" | "google") => {
     const supabase = supabaseBrowser();
     supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: location.origin + "/auth/callback?next=" + next,
+        redirectTo: location.origin + "/login/callback?next=" + next,
       },
     });
   };
