@@ -32,14 +32,15 @@ const StudyGroup = () => {
   const [file, setFile] = React.useState<File | null>(null);
   const [image, setImage] = React.useState<File | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Find the correct types
+  const handleFileChange = (e: any) => {
     const fileList = e.target.files;
     if (fileList && fileList.length > 0) {
       setFile(fileList[0]);
     }
   };
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (e: any) => {
     const fileList = e.target.files;
     if (fileList && fileList.length > 0) {
       setImage(fileList[0]);
