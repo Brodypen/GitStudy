@@ -65,7 +65,7 @@ In the future, we plan to introduce a feature where students can plan a study se
 ![Figma](https://img.shields.io/badge/-Figma-F24E1E?logo=figma&logoColor=white)
 
 **Frontend**:
-![Next.js](https://img.shields.io/badge/-Next.js-black?logo=next.js&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![Next.js](https://img.shields.io/badge/-Next.js-black?logo=next.js&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white) ![Shadcn](https://img.shields.io/badge/-Shadcn-2ea44f?logo=shadcn&logoColor=white) ![Aceternity UI](https://img.shields.io/badge/-Aceternity_UI-563D7C?logo=aceternity-ui&logoColor=white)
 
 **Database**: 
 ![Supabase](https://img.shields.io/badge/-Supabase-181717?logo=supabase&logoColor=white)
